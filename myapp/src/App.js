@@ -4,9 +4,11 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Participants from "./Participants";
+import ParticipantsUI from "./ParticipantsUI";
 
 class App extends Component {
   state = {
+    prova: "provaok",
     copyright: {
       name: "Myname",
       year: 2020,
@@ -24,6 +26,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Participants participants={this.state.participants} />
+        <ParticipantsUI participants={this.state} />
         <Footer
           name={this.state.copyright.name}
           year={this.state.copyright.year}
