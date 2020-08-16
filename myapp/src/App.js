@@ -5,6 +5,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Participants from "./Participants";
 import ParticipantsUI from "./ParticipantsUI";
+import Nav from "./Nav";
+import Main from "./Main";
+import Form from './Form';
 
 class App extends Component {
   state = {
@@ -21,10 +24,18 @@ class App extends Component {
     ],
   };
 
+  addParticipant = participant => {
+    participant.id = Math.random();
+    this.setState({participants: [...this.state.participants, participant]});
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
+        <Nav participants={this.state.participants}/>
+        <Main name={this.state.copyright}/>
+        <Form addParticipant={this.addParticipant}/>
         <Participants participants={this.state.participants} />
         <ParticipantsUI participants={this.state} />
         <Footer

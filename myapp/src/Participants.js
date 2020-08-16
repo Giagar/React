@@ -8,6 +8,7 @@ class Participants extends Component {
     return (
       <section>
         <h2>Participants</h2>
+        <p>Participants description: it is a class component used as a ui component which updates itself everytime the App's state changes</p>
         <div>
             <ul>{list}</ul>
         </div>
