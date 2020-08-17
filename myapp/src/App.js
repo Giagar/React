@@ -29,6 +29,12 @@ class App extends Component {
     this.setState({participants: [...this.state.participants, participant]});
   }
 
+  removeParticipant = (participant) => {
+    const list = this.state.participants.filter(person => person.id !== participant.id);
+    this.setState({participants: list});
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,7 +43,7 @@ class App extends Component {
         <Main name={this.state.copyright}/>
         <Form addParticipant={this.addParticipant}/>
         <Participants participants={this.state.participants} />
-        <ParticipantsUI participants={this.state} />
+        <ParticipantsUI participants={this.state.participants} removeParticipant={this.removeParticipant}/>
         <Footer
           name={this.state.copyright.name}
           year={this.state.copyright.year}
