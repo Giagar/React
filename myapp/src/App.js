@@ -4,10 +4,10 @@ import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Participants from "./Participants";
-import ParticipantsUI from "./ParticipantsUI";
 import Nav from "./Nav";
 import Main from "./Main";
-import Form from './Form';
+import Form from "./Form";
+import ParticipantsUI from './ParticipantsUI';
 
 class App extends Component {
   state = {
@@ -27,13 +27,15 @@ class App extends Component {
   addParticipant = participant => {
     participant.id = Math.random();
     this.setState({participants: [...this.state.participants, participant]});
+    console.log(this.state.participants)
   }
 
-  removeParticipant = (participant) => {
-    const list = this.state.participants.filter(person => person.id !== participant.id);
-    this.setState({participants: list});
-    console.log(this.state)
+  removeParticipant = participantId => {
+    const newList = this.state.participants.filter(participant => participant.id !== participantId);
+    this.setState({participants: newList}); 
   }
+
+  
 
   render() {
     return (
@@ -41,9 +43,12 @@ class App extends Component {
         <Header />
         <Nav participants={this.state.participants}/>
         <Main name={this.state.copyright}/>
-        <Form addParticipant={this.addParticipant}/>
-        <Participants participants={this.state.participants} />
+        <Form addParticipant={this.addParticipant} />
         <ParticipantsUI participants={this.state.participants} removeParticipant={this.removeParticipant}/>
+
+        
+        {/* <Participants participants={this.state.participants} /> */}
+        
         <Footer
           name={this.state.copyright.name}
           year={this.state.copyright.year}

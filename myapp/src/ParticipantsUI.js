@@ -2,20 +2,19 @@ import React from "react";
 
 const ParticipantsUI = props => {
 
-    const participantsList = props.participants.map((participant, index) => (
-        <div key={participant.id} className="cell">
-            <p>Participant n. {index + 1} is {participant.name} from {participant.country}</p>
-            <button className="removeBtn" onClick={() => props.removeParticipant(participant)}>Remove participant</button>
+    const list = props.participants.map((participant, index) => (<div key={participant.id} className="cell">
+        <p>The participant n. {index + 1} is {participant.name} from {participant.country}</p>
+        <button onClick={() => props.removeParticipant(participant.id)}>Remove participant</button>
         </div>));
 
     return(
         <div className="participantsUI">
+            <h2>ParticipantsUI</h2>
             <div className="container">
-                {participantsList}
+                {list}
             </div>
         </div>
     )
-
 }
 
 export default ParticipantsUI;
