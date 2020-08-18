@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import Participants from "./Participants";
-import Nav from "./Nav";
-import Main from "./Main";
-import Form from "./Form";
-import ParticipantsUI from './ParticipantsUI';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Participants from "./components/Participants";
+import Nav from "./components/Nav";
+import Main from "./components/Main";
+import Form from "./components/Form";
+import ParticipantsUI from './components/ParticipantsUI';
 
 class App extends Component {
   state = {
