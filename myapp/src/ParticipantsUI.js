@@ -10,7 +10,7 @@ const ParticipantsUI = props => {
     return(
         <div className="participantsUI">
             <h2>ParticipantsUI</h2>
-            <div className="container">
+            <div className="listWrapper">
                 {list}
             </div>
         </div>
