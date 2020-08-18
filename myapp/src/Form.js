@@ -24,7 +24,7 @@ class Form extends Component {
                     <input type="text" name="name" id="name" onChange={this.handleChange} />
                     <label htmlFor="country">Country of origin: </label>
                     <input type="text" name="country" id="country" onChange={this.handleChange} />
-                    <button id="submit">Submit</button>
+                    <button id="submit" className="btn btn-sm btn-outline-success" >Submit</button>
                 </form>
             </div>
         )

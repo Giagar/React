@@ -4,7 +4,7 @@ const ParticipantsUI = props => {
 
     const list = props.participants.map((participant, index) => (<div key={participant.id} className="cell">
         <p>The participant n. {index + 1} is {participant.name} from {participant.country}</p>
-        <button onClick={() => props.removeParticipant(participant.id)}>Remove participant</button>
+        <button className="btn btn-outline-danger btn-sm" onClick={() => props.removeParticipant(participant.id)}>Remove participant</button>
         </div>));
 
     return(
