@@ -3,11 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Participants from "./components/Participants";
 import Nav from "./components/Nav";
+import Navbar from "./components/Navbar";
 import Main from "./components/Main";
 import Form from "./components/Form";
 import ParticipantsUI from './components/ParticipantsUI';
+import {BrowserRouter, Route} from "react-router-dom";
+
 
 class App extends Component {
   state = {
@@ -42,13 +44,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <Nav participants={this.state.participants}/>
+        <Navbar />
         <Main name={this.state.copyright}/>
         <Form addParticipant={this.addParticipant} />
         <ParticipantsUI participants={this.state.participants} removeParticipant={this.removeParticipant}/>
-
-        
-        {/* <Participants participants={this.state.participants} /> */}
-        
         <Footer
           name={this.state.copyright.name}
           year={this.state.copyright.year}
