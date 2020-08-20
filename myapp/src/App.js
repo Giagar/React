@@ -3,11 +3,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Participants from "./components/Participants";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import Form from "./components/Form";
-import ParticipantsUI from './components/ParticipantsUI';
+import ParticipantsUI from "./components/ParticipantsUI";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 class App extends Component {
   state = {
@@ -17,43 +21,48 @@ class App extends Component {
       year: 2020,
     },
     participants: [
-      { name: "Person1", country: "Italy", id:1 },
-      { name: "Person2", country: "France", id:2 },
-      { name: "Person3", country: "The UK", id:3 },
-      { name: "Person4", country: "Spain", id:4 },
+      { name: "Person1", country: "Italy", id: 1 },
+      { name: "Person2", country: "France", id: 2 },
+      { name: "Person3", country: "The UK", id: 3 },
+      { name: "Person4", country: "Spain", id: 4 },
     ],
   };
 
-  addParticipant = participant => {
+  addParticipant = (participant) => {
     participant.id = Math.random();
-    this.setState({participants: [...this.state.participants, participant]});
-    console.log(this.state.participants)
-  }
+    this.setState({ participants: [...this.state.participants, participant] });
+    console.log(this.state.participants);
+  };
 
-  removeParticipant = participantId => {
-    const newList = this.state.participants.filter(participant => participant.id !== participantId);
-    this.setState({participants: newList}); 
-  }
-
-  
+  removeParticipant = (participantId) => {
+    const newList = this.state.participants.filter(
+      (participant) => participant.id !== participantId
+    );
+    this.setState({ participants: newList });
+  };
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Nav participants={this.state.participants}/>
-        <Main name={this.state.copyright}/>
-        <Form addParticipant={this.addParticipant} />
-        <ParticipantsUI participants={this.state.participants} removeParticipant={this.removeParticipant}/>
-
-        
-        {/* <Participants participants={this.state.participants} /> */}
-        
-        <Footer
-          name={this.state.copyright.name}
-          year={this.state.copyright.year}
-        />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Nav participants={this.state.participants} />
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Main name={this.state.copyright} />
+          <Form addParticipant={this.addParticipant} />
+          <ParticipantsUI
+            participants={this.state.participants}
+            removeParticipant={this.removeParticipant}
+          />
+          <Footer
+            name={this.state.copyright.name}
+            year={this.state.copyright.year}
+          />
+        </div>
+      </BrowserRouter>
     );
   }
 }
