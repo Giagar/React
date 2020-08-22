@@ -12,6 +12,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import PageNotWorking from "./components/PageNotWorking";
 
 class App extends Component {
   state = {
@@ -51,6 +52,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/pagenotworking" component={PageNotWorking} />
           <Main name={this.state.copyright} />
           <Form addParticipant={this.addParticipant} />
           <ParticipantsUI

@@ -1,6 +1,10 @@
 import React from "react";
 
-const Contact = () => {
+const Contact = props => {
+    setTimeout(() => {
+        props.history.push("/pagenotworking")
+    }, 500);
+    
     return(
         <div className="Contact">
             <h1>Contact</h1>
