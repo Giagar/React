@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Rainbow from "../hoc/Rainbow";
 
 class Main extends Component {
     state = {
@@ -20,4 +21,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default Rainbow(Main);
